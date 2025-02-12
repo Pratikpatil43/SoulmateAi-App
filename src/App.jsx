@@ -60,7 +60,7 @@ function App() {
             <a href="" className="btn btn-lg btn-heart animated bounceIn" style={{ textTransform: 'none' }}>
               Start your free trial now😉😉
             </a><br /><br />
-            <a href="#signup" className="btn btn-lg btn-heart animated bounceIn" style={{ textTransform: 'none', backgroundColor: '#007bff', color: 'white' }}>
+            <a href="https://soulmateai.vercel.app/" className="btn btn-lg btn-heart animated bounceIn" style={{ textTransform: 'none', backgroundColor: '#007bff', color: 'white' }}>
   🚀 Launch App
 </a>
 
@@ -135,7 +135,7 @@ function App() {
 
         <br /><br />
         <h2 className="text-white animated zoomIn">Start Your Journey Today!😉😉</h2>
-        <a href="#signup" className="btn btn-lg btn-light animated bounceIn">Create your Account now</a>
+        <a href="https://soulmateai.vercel.app/signup" className="btn btn-lg btn-light animated bounceIn">Create your Account now</a>
       </section>
     </div>
   );
