@@ -51,9 +51,7 @@ function App() {
           <div className="container">
             <h1 className="display-3 animated fadeIn">💖 Celebrate Your Valentine's with AI! 💖</h1>
             <p className="lead mb-4 animated fadeIn">Let <strong>SoulmateAI</strong> be your ultimate wingman! Discover your perfect match with cutting-edge AI-powered matchmaking. Say goodbye to endless swiping and hello to <strong>real connections</strong>!</p>
-            <a href="" className="btn btn-lg btn-heart animated bounceIn" style={{ textTransform: 'none' }}>
-              Start your free trial now 😉😉
-            </a><br /><br />
+            
             <a href="https://soulmateai.vercel.app/" className="btn btn-lg btn-heart animated bounceIn" style={{ textTransform: 'none', backgroundColor: '#007bff', color: 'white' }}>
               🚀 Launch App
             </a>
