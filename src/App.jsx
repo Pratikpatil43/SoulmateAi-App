@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
-import { Analytics } from "@vercel/analytics/react"
+
 
 function App() {
   const [rating, setRating] = useState(0);
@@ -46,7 +46,7 @@ function App() {
 
   return (
     <div className="App">
-      <Analytics/>
+
       {/* Hero Section */}
       <section className="hero d-flex justify-content-center align-items-center text-center text-light">
         <div className="hero-overlay w-100 h-100 d-flex justify-content-center align-items-center">
