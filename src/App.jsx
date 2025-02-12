@@ -3,19 +3,16 @@ import './App.css';
 import axios from 'axios';
 
 function App() {
-  // State to handle ratings, the average rating, and if the user has rated
   const [rating, setRating] = useState(0);
   const [averageRating, setAverageRating] = useState(0);
-  const [hasRated, setHasRated] = useState(false); // Track if the user has already rated
+  const [hasRated, setHasRated] = useState(false);
 
-  // Function to handle rating changes
   const handleRatingChange = (newRating) => {
-    if (!hasRated) {  // Only allow rating changes if the user hasn't rated yet
+    if (!hasRated) {
       setRating(newRating);
     }
   };
 
-  // Fetch the average rating from the server
   useEffect(() => {
     axios.get('https://landingpage-backend-mvil.onrender.com/api/ratings')
       .then(response => {
@@ -24,19 +21,17 @@ function App() {
       .catch(error => {
         console.log('Error fetching ratings:', error);
       });
-  }, []);  // Empty dependency array, runs only once on component mount
+  }, []);
 
-  // Function to submit the rating to the server
   const handleSubmitRating = () => {
     if (rating > 0 && !hasRated) {
       axios.post('https://landingpage-backend-mvil.onrender.com/api/ratings', { rating })
         .then(response => {
-          setHasRated(true);  // Mark that the user has rated
-          setRating(0); // Reset rating after submission
-          // Fetch the updated average rating after submission
+          setHasRated(true);
+          setRating(0);
           axios.get('https://landingpage-backend-mvil.onrender.com/api/ratings')
             .then(response => {
-              setAverageRating(response.data.averageRating); // Update average rating
+              setAverageRating(response.data.averageRating);
             })
             .catch(error => {
               console.log('Error fetching ratings:', error);
@@ -54,16 +49,14 @@ function App() {
       <section className="hero d-flex justify-content-center align-items-center text-center text-light">
         <div className="hero-overlay w-100 h-100 d-flex justify-content-center align-items-center">
           <div className="container">
-            <h1 className="display-3 animated fadeIn">Find Your Soulmate with AI</h1>
-            <p className="lead mb-4 animated fadeIn">Let SoulmateAI guide you to your perfect match with advanced AI technology and a touch of intelligence!</p>
-
+            <h1 className="display-3 animated fadeIn">💖 Celebrate Your Valentine's with AI! 💖</h1>
+            <p className="lead mb-4 animated fadeIn">Let <strong>SoulmateAI</strong> be your ultimate wingman! Discover your perfect match with cutting-edge AI-powered matchmaking. Say goodbye to endless swiping and hello to <strong>real connections</strong>!</p>
             <a href="" className="btn btn-lg btn-heart animated bounceIn" style={{ textTransform: 'none' }}>
-              Start your free trial now😉😉
+              Start your free trial now 😉😉
             </a><br /><br />
             <a href="https://soulmateai.vercel.app/" className="btn btn-lg btn-heart animated bounceIn" style={{ textTransform: 'none', backgroundColor: '#007bff', color: 'white' }}>
-  🚀 Launch App
-</a>
-
+              🚀 Launch App
+            </a>
           </div>
         </div>
       </section>
@@ -96,13 +89,11 @@ function App() {
 
       {/* CTA Section */}
       <section id="cta" className="bg-danger text-center py-5">
-        {/* Display Average Rating */}
         <div className="rating-display mb-4">
           <h2 className="text-dark animated zoomIn">Rate our App</h2>
           <h3 className="text-light">Average Rating: {averageRating} / 5</h3>
         </div>
 
-        {/* Rating Component with Stars */}
         <div className="rating mb-4">
           {[1, 2, 3, 4, 5].map((star) => (
             <span
@@ -114,17 +105,16 @@ function App() {
                 cursor: 'pointer',
                 fontSize: '30px',
                 transition: 'transform 0.2s ease, color 0.2s ease',
-                color: star <= rating ? 'gold' : 'gray',  // Change color when selected
+                color: star <= rating ? 'gold' : 'gray',
               }}
-              onMouseEnter={(e) => e.target.style.transform = 'scale(1.2)'} // On hover, scale the star
-              onMouseLeave={(e) => e.target.style.transform = 'scale(1)'} // Reset the scale when hover ends
+              onMouseEnter={(e) => e.target.style.transform = 'scale(1.2)'}
+              onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
             >
               ★
             </span>
           ))}
         </div>
 
-        {/* Submit Rating Button */}
         {!hasRated ? (
           <button className="btn btn-lg btn-light animated bounceIn" onClick={handleSubmitRating}>
             Submit Rating
@@ -134,7 +124,7 @@ function App() {
         )}
 
         <br /><br />
-        <h2 className="text-white animated zoomIn">Start Your Journey Today!😉😉</h2>
+        <h2 className="text-white animated zoomIn">Start Your Journey Today! 😉😉</h2>
         <a href="https://soulmateai.vercel.app/signup" className="btn btn-lg btn-light animated bounceIn">Create your Account now</a>
       </section>
     </div>
