@@ -17,7 +17,7 @@ function App() {
 
   // Fetch the average rating from the server
   useEffect(() => {
-    axios.get('http://localhost:3000/api/ratings')
+    axios.get('https://landingpage-backend-mvil.onrender.com/api/ratings')
       .then(response => {
         setAverageRating(response.data.averageRating);
       })
@@ -29,12 +29,12 @@ function App() {
   // Function to submit the rating to the server
   const handleSubmitRating = () => {
     if (rating > 0 && !hasRated) {
-      axios.post('http://localhost:3000/api/ratings', { rating })
+      axios.post('https://landingpage-backend-mvil.onrender.com/api/ratings', { rating })
         .then(response => {
           setHasRated(true);  // Mark that the user has rated
           setRating(0); // Reset rating after submission
           // Fetch the updated average rating after submission
-          axios.get('http://localhost:3000/api/ratings')
+          axios.get('https://landingpage-backend-mvil.onrender.com/api/ratings')
             .then(response => {
               setAverageRating(response.data.averageRating); // Update average rating
             })
